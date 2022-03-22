@@ -48,3 +48,15 @@ require を書く必要があるのは、以下の 2 つの場合だけです。
 
 lib/ディレクトリの下にあるファイルを読み込む場合
 Gemfile で require: false が指定されている gem 依存を読み込む場合
+
+- モデル生成
+
+```
+docker-compose run web rails generate model Article title:string body:text
+```
+
+- マイグレーション
+
+```
+docker-compose run web rails db:migrate
+```
