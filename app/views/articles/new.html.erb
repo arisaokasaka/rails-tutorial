@@ -1,11 +1,16 @@
 <h1>New Article</h1>
 
-<%# form_withヘルパーメソッドは、フォームビルダー（ここではform）をインスタンス化します。 %>
+<%# article変数に@articleインスタンスを渡す %>
+<%= render "form", article: @article %>
+
+<% 
+=begin
+%>
+**partialのViewでない場合、articleが@articleのようにインスタンスになってる**
 <%= form_with model: @article, local: true do |form| %>
     <div>
         <%= form.label :title %><br>
         <%= form.text_field :title %>
-        <%# full_messages_for: 指定の属性に対応するわかりやすいエラーメッセージを含む配列を1個返します. エラーが発生していない場合、配列は空. %>
         <% @article.errors.full_messages_for(:title).each do |message| %>
             <div><%= message %></div>
         <% end %>
@@ -23,3 +28,6 @@
         <%= form.submit %>
     </div>
 <% end %>
+<%
+=end
+%>

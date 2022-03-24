@@ -1,0 +1,25 @@
+<%# パーシャルのファイル名は冒頭にアンダースコア_を必ず付けなければなりません（例: _form.html.erb）。ただし、レンダリングでパーシャルを参照するときはアンダースコアを付けません（例: render "form"）。 %>
+<%# パーシャルのコードは共有されるので、特定のarticleインスタンス変数に依存しないようにするのがベストプラクティス %>
+<%# form_withヘルパーメソッドは、フォームビルダー（ここではform）をインスタンス化します。 %>
+<%= form_with model: article, local: true do |form| %>
+    <div>
+        <%= form.label :title %><br>
+        <%= form.text_field :title %>
+        <%# full_messages_for: 指定の属性に対応するわかりやすいエラーメッセージを含む配列を1個返します. エラーが発生していない場合、配列は空. %>
+        <% article.errors.full_messages_for(:title).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.label :body %><br>
+        <%= form.text_area :body %><br>
+        <% article.errors.full_messages_for(:body).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>
