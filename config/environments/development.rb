@@ -12,7 +12,7 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
-  config.web_console.whitelisted_ips = '172.23.0.1'
+  config.web_console.whitelisted_ips = ['172.23.0.1', '172.22.0.1']
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.

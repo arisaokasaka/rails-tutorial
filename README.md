@@ -23,7 +23,11 @@ Things you may want to cover:
 
 - ...
 
-hosted at: http://localhost:3000
+# Tutorial source
+
+https://railsguides.jp/getting_started.html
+
+# Setup
 
 ```
 docker-compose run --no-deps web rails new . --force --database=postgresql
@@ -31,9 +35,16 @@ docker-compose run --no-deps web rails new . --force --database=postgresql
 docker-compose build
 
 docker-compose up
+
+# for the first time
+docker-compose run web rake db:create
 ```
 
+hosted at: http://localhost:3000
+
 Docker 構築参照：https://docs.docker.com/samples/rails/
+
+# Memo for me
 
 - 新規ルート追加して、Controller も追加する場合
 
@@ -60,3 +71,12 @@ docker-compose run web rails generate model Article title:string body:text
 ```
 docker-compose run web rails db:migrate
 ```
+
+- ルート確認
+
+```
+docker-compose run web rails routes
+```
+
+- Strong Parameters
+  strong とは、params を強く型付けする（strong typing）、rails の機能のこと。
