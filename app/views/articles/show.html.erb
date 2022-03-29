@@ -13,30 +13,9 @@
     </li>
 </ul>
 
-<h2>Comments</h2>
-<% @article.comments.each do |comment| %>
-    <p>
-        <strong>Commenter:</strong>
-        <%= comment.commenter %>
-    </p>
-
-    <p>
-        <strong>Comment:</strong>
-        <%= comment.body %>
-    </p>
-<% end %>
+<%= render @article.comments %>
+<%# renderメソッドが@article.commentsコレクションに含まれる要素を1つずつ列挙するときに、各コメントをパーシャルと同じ名前のローカル変数に自動的に代入します。
+この場合はcommentというローカル変数が使われるので、これをパーシャルの表示に利用できます。 %>
 
 <h2>Add a comment:</h2>
-<%= form_with model: [ @article, @article.comments.build ] do |form| %>
-    <p>
-        <%= form.label :commenter %><br>
-        <%= form.text_field :commenter %>
-    </p>
-    <p>
-        <%= form.label :body %><br>
-        <%= form.text_area :body %>
-    </p>
-    <p>
-        <%= form.submit %>
-    </p>
-<% end %>
+<%= render 'comments/form' %>
