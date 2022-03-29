@@ -46,7 +46,7 @@ Docker 構築参照：https://docs.docker.com/samples/rails/
 
 # Memo for me
 
-- 新規ルート追加して、Controller も追加する場合
+- 新規 Controller 追加
 
 ```
 docker-compose run web rails generate controller Articles index --skip-routes
